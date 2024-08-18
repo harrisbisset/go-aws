@@ -1,11 +1,11 @@
 {
     "version": "2.0.0",
     "tasks": [
-      {
-        "label": "Mod Tidy",
-        "type": "shell",
-        "command": "go mod tidy"
-      },
+      // {
+      //   "label": "Mod Tidy",
+      //   "type": "shell",
+      //   "command": "go mod tidy"
+      // },
       {
         "label": "Templ Build",
         "type": "shell",
@@ -16,14 +16,14 @@
         "type": "shell",
         "command": "go build -o bin/ cmd/main.go"
       },
-      {
-        "label": "Tailwind Build",
-        "type": "shell",
-        "command": "npx tailwindcss -c ./tailwind.config.js -i ./site/render/dist/main.css -o ./site/render/dist/tailwind.css"
-      },
+      // {
+      //   "label": "Tailwind Build",
+      //   "type": "shell",
+      //   "command": "npx tailwindcss -c ./tailwind.config.js -i ./site/render/dist/main.css -o ./site/render/dist/tailwind.css"
+      // },
       {
         "label": "Build",
-        "dependsOn": ["Tailwind Build", "Mod Tidy", "Templ Build", "Go Build"],
+        "dependsOn": ["Templ Build", "Go Build"],
         "dependsOrder": "sequence",
         "problemMatcher": [],
         "group": {
