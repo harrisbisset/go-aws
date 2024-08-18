@@ -1,1 +1,1 @@
-./pkg/dev/render/**.go
+./pkg/dev/render/views/**/*.go
