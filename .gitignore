@@ -1,1 +1,2 @@
-pkg/dev/render/views/*.go
+pkg/dev/render/views/*/*.go
+pkg/myfile.go
