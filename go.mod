@@ -3,6 +3,7 @@ module github.com/harrisbisset/go-aws
 go 1.22.6
 
 require (
+	github.com/a-h/templ v0.2.747
 	github.com/harrisbisset/fnet v0.3.7
 	github.com/urfave/cli/v3 v3.0.0-alpha9
 )
