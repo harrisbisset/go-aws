@@ -4,14 +4,14 @@ import (
 	"net/http"
 
 	"github.com/harrisbisset/fnet"
-	"github.com/harrisbisset/go-aws/pkg/dev/render/views/view_login"
+	"github.com/harrisbisset/go-aws/pkg/dev/render/views/view_instances"
 )
 
-var LoginPage = fnet.NewComponent("Login Page").
-	View(view_login.Show()).
-	Error(view_login.Show()).
+var InstancePage = fnet.NewComponent("Login Page").
+	View(view_instances.Show()).
+	Error(view_instances.Show()).
 	Build()
 
 func ShowLogin(w http.ResponseWriter, req *http.Request) {
-	LoginPage.Render(w, req)
+	InstancePage.Render(w, req)
 }
