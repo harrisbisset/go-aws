@@ -6,5 +6,7 @@ import (
 )
 
 func (c cfg) createRoutes() {
-	fnet.HandleComponent(fnet.GET, "/", pages.ShowLogin)
+	fnet.HandleComponent(fnet.GET, "/", pages.ShowIndex)
+	fnet.HandleComponent(fnet.GET, "/instances", pages.ShowInstances)
+
 }
