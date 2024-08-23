@@ -1,11 +1,11 @@
 package view_instances
 
-import "github.com/harrisbisset/go-aws/pkg/models"
+import "github.com/aws/aws-sdk-go-v2/service/ec2/types"
 
 templ Show() {
 }
 
-templ ListInstances(instanceList []models.Instance) {
+templ ListInstances(instanceList []types.Instance) {
 	for range instanceList {
 		<div></div>
 	}
