@@ -1,0 +1,18 @@
+package view_layout
+
+templ Meta() {
+	<!DOCTYPE html>
+	<html id="html" lang="en">
+		<head>
+			<title>AWS Manager</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="icon" type="image/x-icon" href="/public/favicon.ico"/>
+			<link rel="stylesheet" href="/dist/tailwind.min.css"/>
+			<script src="/dist/events.min.js"></script>
+			<script defer src="/dist/htmx.min.js"></script>
+		</head>
+		<body class="absolute w-full h-full">
+			{ children... }
+		</body>
+	</html>
+}

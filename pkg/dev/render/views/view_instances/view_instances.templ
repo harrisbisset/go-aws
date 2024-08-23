@@ -1,4 +1,12 @@
 package view_instances
 
+import "github.com/harrisbisset/go-aws/pkg/models"
+
 templ Show() {
+}
+
+templ ListInstances(instanceList []models.Instance) {
+	for range instanceList {
+		<div></div>
+	}
 }

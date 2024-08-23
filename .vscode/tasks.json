@@ -1,11 +1,6 @@
 {
     "version": "2.0.0",
     "tasks": [
-      // {
-      //   "label": "Mod Tidy",
-      //   "type": "shell",
-      //   "command": "go mod tidy"
-      // },
       {
         "label": "Templ Build",
         "type": "shell",

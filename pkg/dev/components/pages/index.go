@@ -10,7 +10,7 @@ import (
 
 var IndexPage = fnet.NewComponent("Index Page").
 	View(view_index.Show()).
-	Error(view_error.RawBuildError()).
+	Error(0, fnet.RespError("build error", view_error.RawBuildError())).
 	Build()
 
 func ShowIndex(w http.ResponseWriter, req *http.Request) {

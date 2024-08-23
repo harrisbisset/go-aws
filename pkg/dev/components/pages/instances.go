@@ -10,7 +10,7 @@ import (
 
 var InstancePage = fnet.NewComponent("Instance Page").
 	View(view_instances.Show()).
-	Error(view_error.RawBuildError()).
+	Error(0, fnet.RespError("build error", view_error.RawBuildError())).
 	Build()
 
 func ShowInstances(w http.ResponseWriter, req *http.Request) {
