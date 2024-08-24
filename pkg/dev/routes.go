@@ -17,6 +17,6 @@ func (c cfg) createRoutes() {
 
 	//static routing
 	fnet.Handle(fnet.GET, "/dist/", http.StripPrefix("/dist/", fnet.NeuterFileSystem(http.FileServer(http.Dir("./pkg/dev/render/dist")))))
-	// fnet.Handle(fnet.GET, "/public/", http.StripPrefix("/public/", fnet.NeuterFileSystem(http.FileServer(http.Dir("./render/public")))))
+	fnet.Handle(fnet.GET, "/public/", http.StripPrefix("/public/", fnet.NeuterFileSystem(http.FileServer(http.Dir("./pkg/dev/render/public")))))
 	log.Print("created routes")
 }
