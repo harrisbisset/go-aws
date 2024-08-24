@@ -1,7 +1,7 @@
 package dev
 
 import (
-	"net/http"
+	"log"
 
 	"github.com/harrisbisset/fnet"
 )
@@ -9,5 +9,6 @@ import (
 func StartDev(addr string, cidr string) {
 	cfg := createConfig()
 	cfg.createRoutes()
-	fnet.Start(addr, cidr, http.NewServeMux())
+	log.Print("starting server")
+	fnet.Start(addr, cidr, nil)
 }

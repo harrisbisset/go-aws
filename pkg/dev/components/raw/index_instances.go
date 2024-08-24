@@ -17,7 +17,7 @@ var IndexInstances = fnet.NewComponent("Index Instances").
 		Build()).
 	Build()
 
-func Show(w http.ResponseWriter, req *http.Request) {
+func ShowIndexInstances(w http.ResponseWriter, req *http.Request) {
 	instances, err := api.GetInstanceList()
 	if err != nil {
 		IndexInstances.RenderError(1, w, req)

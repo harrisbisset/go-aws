@@ -6,7 +6,20 @@ templ Show() {
 }
 
 templ ListInstances(instanceList []types.Instance) {
-	for range instanceList {
-		<div></div>
+	for _, i := range instanceList {
+		<div>
+			<div>{ *i.InstanceId } </div>
+			<div>{ string(i.Architecture) } </div>
+			<div>{ string(i.InstanceType) } </div>
+			<div>{ *i.PublicDnsName } </div>
+			<div>{ string(i.State.Name) } </div>
+			<div>{ *i.PublicIpAddress } </div>
+			<div>{  string(i.Monitoring.State) } </div>
+			for _, j := range i.SecurityGroups {
+				<div>{ *j.GroupName } </div>
+			}
+			<div>{ *i.SubnetId } </div>
+			<div>{ *i.IamInstanceProfile.Arn } </div>
+		</div>
 	}
 }
