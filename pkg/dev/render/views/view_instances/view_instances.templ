@@ -1,25 +1,39 @@
 package view_instances
 
 import "github.com/aws/aws-sdk-go-v2/service/ec2/types"
+import "strconv"
+import "fmt"
 
 templ Show() {
 }
 
 templ ListInstances(instanceList []types.Instance) {
-	for _, i := range instanceList {
-		<div>
-			<div>{ *i.InstanceId } </div>
-			<div>{ string(i.Architecture) } </div>
-			<div>{ string(i.InstanceType) } </div>
-			<div>{ *i.PublicDnsName } </div>
-			<div>{ string(i.State.Name) } </div>
-			<div>{ *i.PublicIpAddress } </div>
-			<div>{  string(i.Monitoring.State) } </div>
-			for _, j := range i.SecurityGroups {
-				<div>{ *j.GroupName } </div>
-			}
-			<div>{ *i.SubnetId } </div>
-			<div>{ *i.IamInstanceProfile.Arn } </div>
-		</div>
-	}
+	<div class="flex flex-col bg-gray-300 rounded-md p-4 m-4 w-fit">
+		for j, i := range instanceList {
+			<div>
+				<div>{ string(i.InstanceType) }</div>
+				<div>{ string(i.State.Name) }</div>
+				<div>{ *i.PublicDnsName }</div>
+				<div>{ *i.PublicIpAddress }</div>
+				<div>{  string(i.Monitoring.State) }</div>
+				for _, j := range i.SecurityGroups {
+					<div>{ *j.GroupName }</div>
+				}
+				<button id={ fmt.Sprintf("instance-show-first-%s", strconv.Itoa(j)) } class="bg-blue-400 rounded-md w-fit p-1" style="visibility:visible;" onclick={ toggleInstanceShow(fmt.Sprintf("instance-show-first-%s", strconv.Itoa(j)), fmt.Sprintf("show-more-instance-%s", strconv.Itoa(j))) }>
+					Show More
+				</button>
+				<div id={ fmt.Sprintf("show-more-instance-%s", strconv.Itoa(j)) } style="visibility:hidden;">
+					<div>{ *i.InstanceId }</div>
+					<div>{ string(i.Architecture) }</div>
+					<div>{ *i.SubnetId }</div>
+					<div>{ *i.IamInstanceProfile.Arn }</div>
+				</div>
+			</div>
+		}
+	</div>
+}
+
+script toggleInstanceShow(showButton string, info string) {
+	toggleShowMore(showButton)
+    toggleShow(info)
 }

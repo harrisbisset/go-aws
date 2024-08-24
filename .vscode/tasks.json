@@ -11,14 +11,14 @@
         "type": "shell",
         "command": "go build -o bin/ cmd/main.go"
       },
-      // {
-      //   "label": "Tailwind Build",
-      //   "type": "shell",
-      //   "command": "npx tailwindcss -c ./tailwind.config.js -i ./site/render/dist/main.css -o ./site/render/dist/tailwind.css"
-      // },
+      {
+        "label": "Tailwind Build",
+        "type": "shell",
+        "command": "npx tailwindcss -c ./pkg/dev/tailwind.config.js -i ./pkg/dev/render/dist/main.css -o ./pkg/dev/render/dist/tailwind.css"
+      },
       {
         "label": "Build",
-        "dependsOn": ["Templ Build", "Go Build"],
+        "dependsOn": ["Tailwind Build", "Templ Build", "Go Build"],
         "dependsOrder": "sequence",
         "problemMatcher": [],
         "group": {
