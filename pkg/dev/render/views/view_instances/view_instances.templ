@@ -12,7 +12,9 @@ templ ListInstances(instanceList []types.Instance) {
 	<div class="flex flex-col bg-gray-300 rounded-md p-4 m-4 w-fit">
 		for j, i := range instanceList {
 			<div>
-				<div hx-get={ "/instance/checkConnection/" + *i.InstanceId }></div>
+				<div
+ 					hx-get={ "/instance/checkConnection/index/" + *i.InstanceId + "/" + *i.Placement.AvailabilityZone }
+				></div>
 				<div>{ string(i.InstanceType) }</div>
 				<div>{ string(i.State.Name) }</div>
 				<div>{ *i.PublicDnsName }</div>
@@ -37,7 +39,10 @@ templ ListInstances(instanceList []types.Instance) {
 
 script toggleInstanceShow(showButton string, info string) {
 	toggleShowMore(showButton)
-    toggleShow(info)
+    toggleShow(info, "block")
+}
+
+templ IndexInstanceReport(report models.ConnectionReport) {
 }
 
 templ InstanceReport(report models.ConnectionReport) {

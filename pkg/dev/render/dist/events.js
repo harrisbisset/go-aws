@@ -1,10 +1,10 @@
-function toggleShow(id) {
-    let elem = document.getElementById(id, dis)
+function toggleShow(id, dis) {
+    let elem = document.getElementById(id)
     console.log(elem.style.display)
-    if (elem.style.visibility == "none") {
-        elem.style.visibility = dis
+    if (elem.style.display == "none") {
+        elem.style.display = dis
     } else {
-        elem.style.visibility = "none"
+        elem.style.display = "none"
     }
 }
 

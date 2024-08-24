@@ -7,6 +7,7 @@ require (
 	github.com/aws/aws-sdk-go-v2 v1.30.4
 	github.com/aws/aws-sdk-go-v2/config v1.27.29
 	github.com/aws/aws-sdk-go-v2/service/ec2 v1.176.0
+	github.com/aws/aws-sdk-go-v2/service/ec2instanceconnect v1.25.4
 	github.com/harrisbisset/fnet v0.4.4
 	github.com/urfave/cli/v3 v3.0.0-alpha9
 )
@@ -23,5 +24,8 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssooidc v1.26.5 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.30.5 // indirect
 	github.com/aws/smithy-go v1.20.4 // indirect
+	github.com/charmbracelet/keygen v0.5.1 // indirect
 	github.com/xrash/smetrics v0.0.0-20201216005158-039620a65673 // indirect
+	golang.org/x/crypto v0.26.0 // indirect
+	golang.org/x/sys v0.23.0 // indirect
 )
