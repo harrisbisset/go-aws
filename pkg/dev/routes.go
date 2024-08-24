@@ -13,7 +13,8 @@ func (c cfg) createRoutes() {
 	fnet.HandleComponent(fnet.GET, "/", pages.ShowIndex)
 	fnet.HandleComponent(fnet.GET, "/instance", pages.ShowInstances)
 	fnet.HandleComponent(fnet.GET, "/instance/list", raw.ShowIndexInstances)
-	fnet.HandleComponent(fnet.GET, "/instance/checkConnection/{}", raw.ShowCheckInstanceConnection)
+	fnet.HandleComponent(fnet.GET, "/instance/checkConnection/index/{id}/{zone}", raw.ShowIndexInstanceConnection)
+	fnet.HandleComponent(fnet.GET, "/instance/checkConnection/{id}/{user}/{zone}", raw.ShowInstanceConnection)
 
 	//static routing
 	fnet.Handle(fnet.GET, "/dist/", http.StripPrefix("/dist/", fnet.NeuterFileSystem(http.FileServer(http.Dir("./pkg/dev/render/dist")))))
