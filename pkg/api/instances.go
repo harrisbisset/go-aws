@@ -7,6 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/ec2"
 	"github.com/aws/aws-sdk-go-v2/service/ec2/types"
+	"github.com/harrisbisset/go-aws/pkg/models"
 )
 
 func GetInstanceList() ([]types.Instance, error) {
@@ -33,4 +34,12 @@ func GetInstanceList() ([]types.Instance, error) {
 	})
 
 	return out.Reservations[0].Instances, err
+}
+
+func CheckInstanceConnection(id string) (models.ConnectionReport, error) {
+	return models.ConnectionReport{}, nil
+}
+
+func CheckDocker() {
+
 }

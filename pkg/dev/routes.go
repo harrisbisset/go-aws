@@ -11,8 +11,9 @@ import (
 
 func (c cfg) createRoutes() {
 	fnet.HandleComponent(fnet.GET, "/", pages.ShowIndex)
-	fnet.HandleComponent(fnet.GET, "/instances", pages.ShowInstances)
-	fnet.HandleComponent(fnet.GET, "/listInstances", raw.ShowIndexInstances)
+	fnet.HandleComponent(fnet.GET, "/instance", pages.ShowInstances)
+	fnet.HandleComponent(fnet.GET, "/instance/list", raw.ShowIndexInstances)
+	fnet.HandleComponent(fnet.GET, "/instance/checkConnection/{}", raw.ShowCheckInstanceConnection)
 
 	//static routing
 	fnet.Handle(fnet.GET, "/dist/", http.StripPrefix("/dist/", fnet.NeuterFileSystem(http.FileServer(http.Dir("./pkg/dev/render/dist")))))

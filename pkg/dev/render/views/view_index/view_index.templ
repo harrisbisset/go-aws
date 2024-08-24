@@ -5,7 +5,7 @@ import "github.com/harrisbisset/go-aws/pkg/dev/render/views/view_layout"
 templ Show() {
 	@view_layout.Meta() {
 		<div
- 			hx-get="/listInstances"
+ 			hx-get="/instance/list"
  			hx-target="this"
  			hx-trigger="load"
 		></div>

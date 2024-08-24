@@ -1,10 +1,10 @@
 function toggleShow(id) {
-    let elem = document.getElementById(id)
-    console.log(elem.style.visibility)
-    if (elem.style.visibility == "hidden") {
-        elem.style.visibility = "visible"
+    let elem = document.getElementById(id, dis)
+    console.log(elem.style.display)
+    if (elem.style.visibility == "none") {
+        elem.style.visibility = dis
     } else {
-        elem.style.visibility = "hidden"
+        elem.style.visibility = "none"
     }
 }
 

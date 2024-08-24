@@ -25,3 +25,21 @@ func ShowIndexInstances(w http.ResponseWriter, req *http.Request) {
 	IndexInstances.View(view_instances.ListInstances(instances))
 	IndexInstances.Render(w, req)
 }
+
+var InstanceConnection = fnet.NewComponent("Check Instance Connection").
+	Error(0, components.DefaultBuildError).
+	Error(1, fnet.NewError("api error", view_error.RawBuildError()).
+		Error("api responded poorly").
+		Build()).
+	Build()
+
+func ShowCheckInstanceConnection(w http.ResponseWriter, req *http.Request) {
+	id := req.PathValue("id")
+	report, err := api.CheckInstanceConnection(id)
+	if err != nil {
+		InstanceConnection.RenderError(1, w, req)
+	}
+
+	InstanceConnection.View(view_instances.InstanceReport(report))
+	InstanceConnection.Render(w, req)
+}
